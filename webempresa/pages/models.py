@@ -8,6 +8,7 @@ class Page(models.Model):
     content = RichTextField(verbose_name='Contenido')
     order = models.SmallIntegerField(verbose_name='Orden', default=0)
     created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de creación')
+    update = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
 
     class Meta:
         verbose_name = "Página"

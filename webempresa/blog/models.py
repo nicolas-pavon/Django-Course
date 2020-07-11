@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 class Category(models.Model):
     name = models.CharField(max_length=100, verbose_name='Nombre')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de creación')
+    update = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
 
     class Meta:
         verbose_name = "Categoría"
@@ -24,6 +25,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, verbose_name='Autor', on_delete=models.CASCADE)
     categories = models.ManyToManyField(Category, verbose_name='Categerías', related_name='get_posts')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de creación')
+    update = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
 
     class Meta:
         verbose_name = "Entrada"
